@@ -6,6 +6,7 @@
 // }
 
 // submitBtn.addEventListener('click', getInfo);
+require("dotenv").config()
 const cityName = document.getElementById('cityName')
 const submitbtn = document.getElementById('submitbtn');
 const city_name = document.getElementById('city_name');
@@ -22,7 +23,7 @@ const getInfo = async(event) =>{
     data_hide.classList.add('data_hide');
    }else{
     try{
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=a1a70c6ece560bcd298782c4f3a26e0e`;
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=${process.env.api_key}`;
         const response = await fetch(url);
         const data = await response.json();
         // console.log(data);
